@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -14,7 +13,7 @@ class _CatalogoState extends State<Catalogo> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 45, 177, 200),
-        leading: const Icon(Icons.tag_faces),
+        leading: const Icon(Icons.filter_alt),
         title: const Text("Catalogo"),
         actions: <Widget>[
           IconButton(
@@ -41,7 +40,40 @@ class _CatalogoState extends State<Catalogo> {
         height: double.infinity,
         width: double.infinity,
         child: SingleChildScrollView(
-          child: Center(),
+          child: Center(
+            child: Container(
+              height: 900,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      GestureDetector(
+                        onTap: () {
+                          //Espacio para codigo
+                          print("Lectura seleccionada");
+                          //Navigator.push(context, route)
+                        },
+                        child: SvgPicture.asset(
+                          'images/image_vector.svg',
+                          width: 150,
+                          height: 150,
+                        ),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Text("Titulo"),
+                          Text("Género"),
+                          Text("Dificultad"),
+                        ],
+                      )
+                    ],
+                  ),
+                ],
+              ),
+            ),
+          ),
         ),
       ),
     );

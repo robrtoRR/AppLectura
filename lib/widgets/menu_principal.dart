@@ -1,3 +1,4 @@
+import 'package:app_lectura/widgets/catalogo.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +19,6 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
           child: Center(
             child: Container(
               height: 900,
-              //Primera opcion
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -26,10 +26,20 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset(
-                        'images/image_vector.svg',
-                        width: 150,
-                        height: 150,
+                      GestureDetector(
+                        onTap: () {
+                          //Espacio para codigo
+                          print("Lectura seleccionada");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Catalogo()),
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          'images/image_vector.svg',
+                          width: 150,
+                          height: 150,
+                        ),
                       ),
                       Text("Lecturas"),
                     ],
