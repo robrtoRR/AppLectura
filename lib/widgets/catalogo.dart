@@ -1,4 +1,5 @@
 import 'dart:ui';
+import 'package:app_lectura/widgets/vista_previa.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -17,7 +18,7 @@ class _CatalogoState extends State<Catalogo> {
         title: const Text("Catalogo"),
         actions: <Widget>[
           IconButton(
-            tooltip: 'Buscar palabra',
+            tooltip: 'Buscar libro',
             icon: const Icon(Icons.search),
             onPressed: () {},
             /* onPressed: () async {
@@ -52,7 +53,11 @@ class _CatalogoState extends State<Catalogo> {
                         onTap: () {
                           //Espacio para codigo
                           print("Lectura seleccionada");
-                          //Navigator.push(context, route)
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VistaPrevia()),
+                          );
                         },
                         child: SvgPicture.asset(
                           'images/image_vector.svg',

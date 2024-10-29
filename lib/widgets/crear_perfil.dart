@@ -12,6 +12,14 @@ class _CrearPerfilState extends State<CrearPerfil> {
   List<String> opciones = <String>["Alumno", "Profesor"];
   String? opcionSeleccionada; // Variable para almacenar la opción seleccionada
 
+  // Imagenes para avatar
+  List<String> avatarImages = [
+    'images/avatar/avatar_nina.svg',
+    'images/avatar/avatar_nino.svg',
+  ];
+
+  String imageSel = 'images/avatar/avatar_nina.svg';
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,7 +36,7 @@ class _CrearPerfilState extends State<CrearPerfil> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("¿Tú eres?"),
+                Text("¿Eres alumno o profesor?"),
                 SizedBox(height: 20),
                 DropdownButtonFormField<String>(
                   value: opcionSeleccionada,
@@ -54,11 +62,11 @@ class _CrearPerfilState extends State<CrearPerfil> {
                 Center(
                   child: GestureDetector(
                     onTap: () {
-                      //Codigo de la imagen
-                      print("Imagen seleccionada");
+                      // Muestra el menú para seleccionar imagen
+                      _mostrarOpcionesAvatar(context);
                     },
                     child: SvgPicture.asset(
-                      'images/profile_icon.svg',
+                      imageSel, // Cambiará a la imagen seleccionada
                       width: 200,
                       height: 200,
                     ),
@@ -67,7 +75,6 @@ class _CrearPerfilState extends State<CrearPerfil> {
                 SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    //Espacio para boton siguiente
                     Navigator.push(
                       context,
                       MaterialPageRoute(
@@ -81,6 +88,35 @@ class _CrearPerfilState extends State<CrearPerfil> {
           ),
         ),
       ),
+    );
+  }
+
+  // Función para mostrar el menú de selección de imágenes
+  void _mostrarOpcionesAvatar(BuildContext context) {
+    showModalBottomSheet(
+      context: context,
+      builder: (BuildContext context) {
+        return Container(
+          child: Wrap(
+            children: avatarImages.map((imagen) {
+              return ListTile(
+                leading: SvgPicture.asset(
+                  imagen,
+                  width: 50,
+                  height: 50,
+                ),
+                title: Text("Seleccionar esta imagen"),
+                onTap: () {
+                  setState(() {
+                    imageSel = imagen;
+                  });
+                  Navigator.pop(context);
+                },
+              );
+            }).toList(),
+          ),
+        );
+      },
     );
   }
 }
