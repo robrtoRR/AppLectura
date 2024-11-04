@@ -1,3 +1,4 @@
+import 'package:app_lectura/widgets/vista_lectura.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -89,6 +90,11 @@ class _VistaPreviaState extends State<VistaPrevia> {
                       ElevatedButton(
                         onPressed: () {
                           //Espacio para codigo
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => VistaLectura()),
+                          );
                         },
                         child: Text("Leer"),
                       ),
