@@ -31,21 +31,27 @@ class _MemoramaState extends State<Memorama> {
     setState(() {
       isFlipped[index] = !isFlipped[index];
       if (selectedIndex == -1) {
+        // Primer clic en una carta
         selectedIndex = index;
       } else {
+        // Segundo clic en una carta
         if (images[selectedIndex] == images[index]) {
+          // Las cartas coinciden
           isMatched[selectedIndex] = true;
           isMatched[index] = true;
         } else {
+          // Las cartas no coinciden
+          int firstIndex = selectedIndex;
           Future.delayed(Duration(seconds: 1), () {
             setState(() {
-              isFlipped[selectedIndex] = false;
+              // Revertimos ambas cartas al estado inicial
+              isFlipped[firstIndex] = false;
               isFlipped[index] = false;
             });
           });
           attempts--;
         }
-        selectedIndex = -1;
+        selectedIndex = -1; // Reiniciar selección para la próxima jugada
       }
     });
   }
@@ -55,7 +61,7 @@ class _MemoramaState extends State<Memorama> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 45, 177, 200),
-        title: const Text("Actividad Memorama"),
+        title: const Text("Memorama"),
       ),
       body: Container(
         width: double.infinity,
@@ -64,7 +70,7 @@ class _MemoramaState extends State<Memorama> {
         child: Column(
           children: [
             Text(
-              'Memorama: Encuentra todas las parejas en 8 intentos.',
+              'Memorama: Lorem Ipsum.',
               style: TextStyle(fontSize: 18),
               textAlign: TextAlign.center,
             ),
