@@ -19,3 +19,6 @@ samples, guidance on mobile development, and a full API reference.
 # AppLectura
 Repositorio TT AppLectura
 >>>>>>> 56aad404d925b8163e56625e94026fbbb26e507a
+
+/**/	TAREAS PENDIENTES /**/
+MODIFICAR ARCHIVO .env
