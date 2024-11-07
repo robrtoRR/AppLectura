@@ -1,4 +1,5 @@
 import 'package:app_lectura/widgets/menu_principal.dart';
+import 'package:app_lectura/widgets/perfil/login.dart';
 import 'package:flutter/material.dart';
 import 'catalogo.dart';
 import 'crear_perfil.dart';
@@ -54,8 +55,7 @@ class Homescreen extends StatelessWidget {
                         //Codigo para inicio de sesión
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => MenuPrincipal()),
+                          MaterialPageRoute(builder: (context) => Login()),
                         );
                       },
                       child: Text("Inicia sesión"),
