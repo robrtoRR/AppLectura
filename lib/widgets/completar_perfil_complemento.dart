@@ -1,4 +1,4 @@
-import 'package:app_lectura/widgets/menu_principal.dart';
+import 'package:app_lectura/secciones/menu_principal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

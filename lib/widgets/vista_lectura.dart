@@ -1,7 +1,9 @@
 import 'package:app_lectura/widgets/juegos/memorama.dart';
 import 'package:app_lectura/widgets/juegos/quiz.dart';
+import 'package:app_lectura/widgets/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import '../pallete.dart';
 
 class VistaLectura extends StatefulWidget {
   @override
@@ -13,7 +15,7 @@ class _VistaLecturaState extends State<VistaLectura> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 45, 177, 200),
+        backgroundColor: kAppBar,
         leading: const Icon(Icons.book),
         title: const Text("Título de la lectura"),
         actions: <Widget>[

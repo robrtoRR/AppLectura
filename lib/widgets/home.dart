@@ -1,5 +1,6 @@
-import 'package:app_lectura/widgets/menu_principal.dart';
-import 'package:app_lectura/widgets/perfil/login.dart';
+import 'package:app_lectura/secciones/menu_principal.dart';
+import 'package:app_lectura/perfil/login.dart';
+import 'package:app_lectura/widgets/miniquiz.dart';
 import 'package:flutter/material.dart';
 import 'catalogo.dart';
 import 'crear_perfil.dart';

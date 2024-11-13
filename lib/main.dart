@@ -1,12 +1,14 @@
+import 'package:app_lectura/perfil/pantallas.dart';
+import 'package:app_lectura/secciones/avatar/avatar.dart';
+import 'package:app_lectura/secciones/menu_principal.dart';
+import 'package:app_lectura/widgets/catalogo.dart';
 import 'package:flutter/material.dart';
-import 'widgets/catalogo.dart';
-import 'widgets/crear_perfil.dart';
-import 'widgets/perfil/screens.dart';
-import 'widgets/home.dart';
-import 'package:flutter/widgets.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'perfil/login.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -14,10 +16,20 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'AppLectura',
       theme: ThemeData(
-        textTheme: GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
+        textTheme:
+            GoogleFonts.josefinSansTextTheme(Theme.of(context).textTheme),
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Homescreen(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Login(),
+        'ForgotPassword': (context) => Recuperar(),
+        'CreateNewAccount': (context) => Signup(),
+        'Principal': (context) => MenuPrincipal(),
+        'Catalogo': (context) => Catalogo(),
+        'Avatar': (context) => Avatar(),
+      },
     );
   }
 }
