@@ -1,5 +1,7 @@
 import 'package:app_lectura/widgets/juegos/memorama.dart';
 import 'package:app_lectura/widgets/juegos/quiz.dart';
+import 'package:app_lectura/widgets/juegos/ordenar_historia.dart';
+import 'package:app_lectura/widgets/juegos/rellenoPalabras.dart';
 import 'package:app_lectura/widgets/pallete.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -65,7 +67,8 @@ class _VistaLecturaState extends State<VistaLectura> {
                       // Espacio para código
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Memorama()),
+                        MaterialPageRoute(
+                            builder: (context) => RellenoPalabras()),
                       );
                     },
                     child: Text(">"),

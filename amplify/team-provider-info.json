@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-applectura-dev-19317-authRole",
+      "UnauthRoleArn": "arn:aws:iam::533267349421:role/amplify-applectura-dev-19317-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::533267349421:role/amplify-applectura-dev-19317-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-applectura-dev-19317-deployment",
+      "UnauthRoleName": "amplify-applectura-dev-19317-unauthRole",
+      "StackName": "amplify-applectura-dev-19317",
+      "StackId": "arn:aws:cloudformation:us-east-1:533267349421:stack/amplify-applectura-dev-19317/a17632d0-a62a-11ef-b50a-0affdcaed963",
+      "AmplifyAppId": "d30x9cj6a3k3uq"
+    }
+  }
+}
