@@ -10,6 +10,11 @@
       "StackName": "amplify-applectura-dev-19317",
       "StackId": "arn:aws:cloudformation:us-east-1:533267349421:stack/amplify-applectura-dev-19317/a17632d0-a62a-11ef-b50a-0affdcaed963",
       "AmplifyAppId": "d30x9cj6a3k3uq"
+    },
+    "categories": {
+      "auth": {
+        "applecturaa8b63ce8": {}
+      }
     }
   }
 }
