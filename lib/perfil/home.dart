@@ -1,9 +1,11 @@
+import 'package:app_lectura/perfil/sesion.dart';
+import 'package:app_lectura/perfil/signup.dart';
 import 'package:app_lectura/secciones/menu_principal.dart';
 import 'package:app_lectura/perfil/login.dart';
 import 'package:app_lectura/widgets/miniquiz.dart';
 import 'package:flutter/material.dart';
-import 'catalogo.dart';
-import 'crear_perfil.dart';
+import '../widgets/catalogo.dart';
+import '../widgets/crear_perfil.dart';
 
 class Homescreen extends StatelessWidget {
   @override
@@ -45,8 +47,7 @@ class Homescreen extends StatelessWidget {
                         //Codigo para boton de registro
                         Navigator.push(
                           context,
-                          MaterialPageRoute(
-                              builder: (context) => CrearPerfil()),
+                          MaterialPageRoute(builder: (context) => Signup()),
                         );
                       },
                       child: Text("Registrate aquí"),

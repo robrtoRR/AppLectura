@@ -10,14 +10,14 @@ import 'package:app_lectura/perfil/home.dart';
 import '../widgets/catalogo.dart';
 import 'package:app_lectura/secciones/avatar/avatar.dart';
 
-class ResetPassword extends StatefulWidget {
-  const ResetPassword({super.key});
+class Sesion extends StatefulWidget {
+  const Sesion({super.key});
 
   @override
-  State<ResetPassword> createState() => _ResetPasswordState();
+  State<Sesion> createState() => _SesionState();
 }
 
-class _ResetPasswordState extends State<ResetPassword> {
+class _SesionState extends State<Sesion> {
   @override
   void initState() {
     super.initState();
@@ -39,7 +39,7 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Authenticator(
-      initialStep: AuthenticatorStep.resetPassword,
+      initialStep: AuthenticatorStep.signUp,
       signUpForm: SignUpForm.custom(
         fields: [
           SignUpFormField.name(required: true),
