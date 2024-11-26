@@ -1,14 +1,16 @@
 import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
-import 'package:app_lectura/secciones/menu_principal.dart';
-import 'package:flutter/material.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
+import 'package:amazon_cognito_identity_dart_2/cognito.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter/material.dart';
 import 'package:app_lectura/amplifyconfiguration.dart';
+import 'package:app_lectura/credenciales/credential.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:app_lectura/perfil/home.dart';
-import '../widgets/catalogo.dart';
 import 'package:app_lectura/secciones/avatar/avatar.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:app_lectura/secciones/menu_principal.dart';
+import '../widgets/catalogo.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -22,6 +24,7 @@ class _LoginState extends State<Login> {
   void initState() {
     super.initState();
     _configureAmplify();
+    fetchUserAttributes();
   }
 
   Future<void> _configureAmplify() async {
@@ -33,6 +36,23 @@ class _LoginState extends State<Login> {
       await Amplify.configure(amplifyconfig);
     } on Exception catch (e) {
       safePrint('An error occurred configuring Amplify: $e');
+    }
+  }
+
+  Future<void> fetchUserAttributes() async {
+    try {
+      final attributes = await Amplify.Auth.fetchUserAttributes();
+      for (var attribute in attributes) {
+        safePrint('${attribute.userAttributeKey}: ${attribute.value}');
+      }
+      // Puedes usar un mapa para almacenar los atributos si lo necesitas
+      Map<String, String> userAttributes = {
+        for (var attribute in attributes)
+          attribute.userAttributeKey.key: attribute.value
+      };
+      safePrint(userAttributes);
+    } on AuthException catch (e) {
+      safePrint('Failed to fetch user attributes: $e');
     }
   }
 
