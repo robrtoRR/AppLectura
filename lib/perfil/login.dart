@@ -2,6 +2,7 @@ import 'package:amplify_flutter/amplify_flutter.dart';
 import 'package:amplify_auth_cognito/amplify_auth_cognito.dart';
 import 'package:amplify_authenticator/amplify_authenticator.dart';
 import 'package:amazon_cognito_identity_dart_2/cognito.dart';
+import 'package:app_lectura/perfil/enviarDatos.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:app_lectura/amplifyconfiguration.dart';
@@ -20,6 +21,9 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  String? userEmail;
+  String? userName;
+  String? userSub; // id del usuario (sub)
   @override
   void initState() {
     super.initState();
@@ -42,15 +46,33 @@ class _LoginState extends State<Login> {
   Future<void> fetchUserAttributes() async {
     try {
       final attributes = await Amplify.Auth.fetchUserAttributes();
+
+      // Mapa para almacenar los datos del usuario
+      Map<String, String?> userAttributes = {};
+
       for (var attribute in attributes) {
-        safePrint('${attribute.userAttributeKey}: ${attribute.value}');
+        switch (attribute.userAttributeKey.key) {
+          case 'email':
+            userAttributes['email'] = attribute.value;
+            break;
+          case 'name':
+            userAttributes['name'] = attribute.value;
+            userName = attribute.value;
+            break;
+          case 'sub':
+            userAttributes['sub'] = attribute.value;
+            break;
+          default:
+            userAttributes[attribute.userAttributeKey.key] = attribute.value;
+        }
       }
-      // Puedes usar un mapa para almacenar los atributos si lo necesitas
-      Map<String, String> userAttributes = {
-        for (var attribute in attributes)
-          attribute.userAttributeKey.key: attribute.value
-      };
-      safePrint(userAttributes);
+
+      //Imprimir variables (test)
+      safePrint('Nombre: $userName');
+      safePrint('ID (sub): $userSub');
+
+      // Enviar los datos al archivo para guardar como JSON
+      await guardarDatosJson(userAttributes);
     } on AuthException catch (e) {
       safePrint('Failed to fetch user attributes: $e');
     }
