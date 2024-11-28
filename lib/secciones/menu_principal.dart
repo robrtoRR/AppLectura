@@ -79,7 +79,7 @@ class _MenuPrincipalState extends State<MenuPrincipal> {
                       Text("Tienda"),
                     ],
                   ),
-                  //Cuarta opcion
+                  //Cuarta opcio
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
